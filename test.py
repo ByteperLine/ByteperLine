@@ -2,13 +2,9 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route("/form")
+@app.route("/")
 def form():
     return render_template("index.html")
-
-@app.route("/")
-def home():
-    return "Bonjour voici mon API"
 
 @app.route("/calcul", methods=["POST"])
 def calcul():
