@@ -1,0 +1,47 @@
+from flask import Flask, request, jsonify, render_template
+
+app = Flask(__name__)
+
+@app.route("/form")
+def form():
+    return render_template("index.html")
+
+@app.route("/")
+def home():
+    return "Bonjour voici mon API"
+
+@app.route("/calcul", methods=["POST"])
+def calcul():
+    data = request.get_json()
+
+    a = data.get("a")
+    b = data.get("b")
+    operation = data.get('operation')
+
+    if a is None or b is None:
+        return jsonify({"Erreur": "aucun calcul n'est fait"}), 400
+
+    try:
+        a = float(a)
+        b = float(b)
+    except (ValueError, TypeError):
+        return jsonify({"Erreur": "a et b doivent être des nombres"}), 400
+    
+    
+    if operation == "addition":
+        c = a + b
+    elif operation == "soustraction":
+        c = a - b
+    elif operation == "multiplication":
+        c = a * b
+    elif operation == "division":
+        if b == 0:
+            return jsonify({"Erreur": "division par zéro"}), 400
+        c = a / b
+    else:
+        return jsonify({"Erreur": "opération non reconnue"}), 400
+    
+    return jsonify({"resultat": c})
+
+if __name__ == "__main__":
+    app.run(debug=True)
