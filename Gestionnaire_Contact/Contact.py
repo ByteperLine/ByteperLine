@@ -176,9 +176,10 @@ def add_contacts():
                     if cont_mod == "o":
                         start()
                     elif cont_mod == "n":
-                        continue
+                        pass
                     else:
                         print("Choix incorrect.")
+                    continue
         else:
             print("Choix incorrect.")
             
