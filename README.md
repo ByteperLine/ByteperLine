@@ -2,7 +2,7 @@
 
 Je suis un développeur freelance spécialisé dans :
 
-- Python & C#
+- Python & C
 - Automatisation (bots, scripts)
 - Développement Back-End (API Flask, scripts automatisés)
 - Création d'outils utiles & sur mesure
