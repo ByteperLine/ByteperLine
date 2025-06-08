@@ -41,12 +41,13 @@ def search_contact():
         while True:
             again = input("\nRechercher un autre contact ? (O/N) ").strip().lower()
             if again == "n":
-                break
-            elif again == "o":
                 start()
+            elif again == "o":
+                break
             else:
                 print("Choix incorrect.")
                 continue
+        continue
 
 def save_contact(contact):
     if os.path.exists(FILENAME):
@@ -179,6 +180,7 @@ def add_contacts():
                         break
                     else:
                         print("Choix incorrect.")
+                        continue
                 
                 continue
         else:
